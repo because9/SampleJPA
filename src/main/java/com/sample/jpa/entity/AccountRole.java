@@ -17,7 +17,7 @@ import lombok.Setter;
 @Table(name = "account_roles")
 @Getter
 @Setter
-public class AccountRoles {
+public class AccountRole {
     @Id
     @GeneratedValue
     private Long id;
@@ -26,7 +26,7 @@ public class AccountRoles {
     private Account user;
     @OneToOne
     @JoinColumn(name = "roleId", nullable = false)
-    private Roles roles;
+    private Role roles;
     @Column(name = "grant_date")
     private Timestamp grantDate;
 }

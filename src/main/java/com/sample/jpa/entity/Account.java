@@ -33,7 +33,7 @@ public class Account {
     @Column(nullable = false, unique = true, length = 200)
     private String email;
     @Column(name = "created_on", nullable = false)
-    private Timestamp createOn;
+    private Timestamp createdOn;
     @Column(name = "last_login")
     private Timestamp lastLogin;
 }

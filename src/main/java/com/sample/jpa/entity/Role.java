@@ -13,7 +13,7 @@ import lombok.Setter;
 @Table(name = "roles")
 @Getter
 @Setter
-public class Roles {
+public class Role {
     @Id
     @GeneratedValue
     private Long roleId;
