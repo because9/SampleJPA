@@ -2,6 +2,7 @@ package com.sample.jpa.service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.sql.DataSource;
 
@@ -26,8 +27,9 @@ public class AbstractService {
         return TransactionAspectSupport.currentTransactionStatus();
     }
 
-    protected <T> T getSingleEntityFromExternalQuery(Class<T> clazz, String fileName, Map<String, String> params) {
-        return this.sqlManager.getSingleResult(clazz, new ClasspathSqlResource(SQL_PREFIX + fileName), params);
+    protected <T> Optional<T> getSingleEntityFromExternalQuery(Class<T> clazz, String fileName,
+            Map<String, String> params) {
+        return Optional.ofNullable(this.sqlManager.getSingleResult(clazz, new ClasspathSqlResource(SQL_PREFIX + fileName), params));
     }
 
     protected <T> List<T> getListEntityFromExternalQuery(Class<T> clazz, String fileName, Map<String, String> params) {
